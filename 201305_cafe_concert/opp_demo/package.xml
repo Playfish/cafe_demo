@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package>
+  <name>opp_demo</name>
+  <version>0.0.0</version>
+  <description>The opp_demo package</description>
+
+  <maintainer email="jihoonl@todo.todo">jihoonl</maintainer>
+
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>map_store</run_depend>
+  <run_depend>annotations_store</run_depend>
+
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- You can specify that this package is a metapackage here: -->
+    <!-- <metapackage/> -->
+
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>

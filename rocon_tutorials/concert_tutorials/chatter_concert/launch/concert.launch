@@ -1,0 +1,14 @@
+<launch>
+  <!-- **************************** Legacy Master ******************************** -->
+  <include file="$(find concert_master)/launch/legacy_master.launch">
+    <arg name="concert_name" value="chatter_concert"/>
+  </include>
+  <group ns="concert">
+    <!-- ******************************* Orchestra ******************************* -->
+    <node name="orchestration" pkg="concert_orchestra" type="orchestra.py">
+      <param name="dot_graph" textfile="$(find chatter_concert)/orchestration/implementation.dot" />
+      <rosparam file="$(find chatter_concert)/yaml/implementation.yaml" command="load"/>
+      <param name="auto_start" value="true"/>
+    </node>
+  </group>
+</launch>

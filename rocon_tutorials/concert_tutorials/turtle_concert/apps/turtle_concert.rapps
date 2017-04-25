@@ -1,0 +1,5 @@
+apps:
+ - name: rocon_apps/chirp
+ - name: turtle_concert/turtle_stroll
+ - name: turtle_concert/turtle_stroll_sim
+ 

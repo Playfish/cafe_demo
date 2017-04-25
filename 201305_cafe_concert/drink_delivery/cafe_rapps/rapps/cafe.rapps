@@ -1,0 +1,10 @@
+apps:
+  - cafe_rapps/cafe_database
+  - cafe_rapps/cafe_database_fake
+  - cafe_rapps/waiter_soft
+  - cafe_rapps/taskcoordinator
+  - cafe_rapps/customer_soft
+  - cafe_rapps/multi_customer_soft
+  - cafe_rapps/annotation
+  - cafe_rapps/kitchen
+  - cafe_rapps/waiter
