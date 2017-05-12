@@ -46,8 +46,8 @@ import roslaunch.pmon
 from .app import AppDefinition, load_AppDefinition_by_name
 from .exceptions import LaunchException, AppException, InvalidAppException, NotFoundException
 from .master_sync import MasterSync
-from app_manager.msg import App, AppList, StatusCodes, AppStatus, AppInstallationState, ExchangeApp
-from app_manager.srv import StartApp, StopApp, ListApps, ListAppsResponse, StartAppResponse, StopAppResponse, InstallApp, UninstallApp, GetInstallationState, UninstallAppResponse, InstallAppResponse, GetInstallationStateResponse, GetAppDetails, GetAppDetailsResponse
+from turtlebot_app_manager_msgs.msg import App, AppList, StatusCodes, AppStatus, AppInstallationState, ExchangeApp
+from turtlebot_app_manager_msgs.srv import StartApp, StopApp, ListApps, ListAppsResponse, StartAppResponse, StopAppResponse, InstallApp, UninstallApp, GetInstallationState, UninstallAppResponse, InstallAppResponse, GetInstallationStateResponse, GetAppDetails, GetAppDetailsResponse
 
 class AppManager(object):
 

@@ -11,7 +11,7 @@ import sys
 import string
 from optparse import OptionParser
 
-import app_manager
+import turtlebot_app_manager
 
 import rospy
 
