@@ -11,7 +11,8 @@ import sys
 import string
 from optparse import OptionParser
 
-import turtlebot_app_manager
+import app_manager
+
 import rospy
 
 def main(argv, stdout, environ):
