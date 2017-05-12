@@ -1,0 +1,6 @@
+display:      Map Manager
+description:  Manage the map database for your TurtleBot maps
+platform:     linux.ros.*
+launch:       turtlebot_core_apps/android_map_manager.launch
+interface:    turtlebot_core_apps/android_map_manager.interface
+

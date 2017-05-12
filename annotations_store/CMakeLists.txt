@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   yocs_msgs
   visualization_msgs
   message_generation
+  map_store
 )
 
 add_message_files(

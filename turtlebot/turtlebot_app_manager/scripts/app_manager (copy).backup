@@ -4,6 +4,8 @@
 usage: %prog [args]
 """
 
+import roslib
+roslib.load_manifest('turtlebot_app_manager')
 import rospkg
 
 import os

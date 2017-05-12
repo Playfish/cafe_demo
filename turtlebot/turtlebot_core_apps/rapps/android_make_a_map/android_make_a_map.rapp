@@ -1,0 +1,6 @@
+display:      Make A Map
+description:  Make a map by driving a TurtleBot from an Android device.
+platform:     linux.ros.*
+launch:       turtlebot_core_apps/android_make_a_map.launch
+interface:    turtlebot_core_apps/android_make_a_map.interface
+

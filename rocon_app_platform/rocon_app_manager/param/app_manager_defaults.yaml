@@ -11,3 +11,22 @@ remote_controller_blacklist: []
 # rapp_lists: '/home/jihoonl/ros/groovy/turtlebot/turtlebot_apps/turtlebot_core_apps/turtlebot.rapps'
 
 app_store_url: []
+
+#rapp_preferred_configuration_file: '/home/ubuntu/catkin_ws/src/cafe_demo/turtlebot/#turtlebot_bringup/param/preferred_rapp.yaml'
+#capabilities_package_whitelist: ['kobuki_capabilities', 'std_capabilities', #'turtlebot_capabilities']
+#interactions: false
+#capabilities_blacklist: ['std_capabilities/Navigation2D', 'std_capabilities/MultiEchoLaserSensor']
+#screen: true
+#auto_rapp_installation: false
+#rapp_package_whitelist: ['rocon_apps', 'turtlebot_rapps']
+#capabilities: true
+#interactions_list: []
+#zeroconf: false
+#robot_description: 'roch_concert'
+#capabilities_nodelet_manager_name: 'capability_server_nodelet_manager'
+#capabilities_parameters: ''
+#auto_start_rapp: ''
+#robot_icon: ''
+#rapp_package_blacklist: ''
+#capabilities_server_name: ''
+#zeroconf_port: ''

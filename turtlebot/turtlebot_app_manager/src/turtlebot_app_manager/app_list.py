@@ -47,8 +47,6 @@ from .app import load_AppDefinition_by_name
 from app_manager.msg import App, ClientApp, KeyValue, Icon
 from .exceptions import AppException, InvalidAppException
 
-import roslib
-roslib.load_manifest('turtlebot_app_manager')
 import rospy
 
 def get_default_applist_directory():
