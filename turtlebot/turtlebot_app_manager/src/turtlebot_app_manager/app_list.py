@@ -44,7 +44,7 @@ import sys
 import yaml
 
 from .app import load_AppDefinition_by_name
-from app_manager.msg import App, ClientApp, KeyValue, Icon
+from turtlebot_app_manager_msgs.msg import App, ClientApp, KeyValue, Icon
 from .exceptions import AppException, InvalidAppException
 
 import rospy

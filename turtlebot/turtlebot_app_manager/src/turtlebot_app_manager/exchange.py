@@ -46,7 +46,7 @@ import sys
 import yaml
 import rospy
 from std_msgs.msg import String
-from app_manager.msg import ExchangeApp, Icon
+from turtlebot_app_manager_msgs.msg import ExchangeApp, Icon
 
 class Exchange():
     def __init__(self, url, directory, on_error = lambda(x): None):
