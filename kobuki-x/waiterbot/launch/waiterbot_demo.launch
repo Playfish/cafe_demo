@@ -17,20 +17,24 @@
 
 <launch>
   <!-- Initial position -->
-  <arg name="initial_pose_x" value="2.0"/>
-  <arg name="initial_pose_y" value="2.0"/>
-  <arg name="initial_pose_a" value="0.0"/>
+  <arg name="initial_pose_x" value="1.41"/>
+  <arg name="initial_pose_y" value="-4.93"/>
+  <arg name="initial_pose_a" value="-1.57"/>
 
   <!--  ****************** 3d sensor ******************  -->
   <include file="$(find turtlebot_bringup)/launch/3dsensor.launch">
-    <arg name="rgb_processing" value="true"/>
-    <arg name="scan_processing" value="true"/>
-    <arg name="depth_processing" value="false"/>
+     <arg name="rgb_processing" value="false" />
+	 <arg name="depth_registration" value="false" />
+	 <arg name="depth_processing" value="false" />
+	 
+	 <!-- We must specify an absolute topic name because if not it will be prefixed by "$(arg camera)".
+	      Probably is a bug in the nodelet manager: https://github.com/ros/nodelet_core/issues/7 -->
+     <arg name="scan_topic" value="/scan" />
   </include>
 
   <!--  ************** Additional sensors *************  -->
-  <include file="$(find waiterbot)/launch/includes/_ir_sensors.launch"/>
-  <include file="$(find waiterbot)/launch/includes/_virt_sensor.launch"/>
+<!--  <include file="$(find waiterbot)/launch/includes/_ir_sensors.launch"/>-->
+<!--  <include file="$(find waiterbot)/launch/includes/_virt_sensor.launch"/>-->
 
   <!--  ***** Kobuki mobile base safety controller ****  -->
   <include file="$(find waiterbot)/launch/includes/_safety_ctrl.launch"/>
@@ -38,7 +42,7 @@
   <!-- Reconfigure command velocity multiplexer to fit waiterbot needs. Just set the parameter doesn't work
        if we start the waiterbot rapp with app manager; we must explicitly call the reconfigure service -->
   <node pkg="rosservice" type="rosservice" name="reconfig_vel_mux" args="call --wait /cmd_vel_mux/set_parameters
-            '{config:{strs:[[yaml_cfg_file,/home/carl/test_husky/rocon/rocon_demo/src/kobuki-x/waiterbot/param/vel_multiplexer.yaml]]}}'"/>
+            '{config:{strs:[[yaml_cfg_file, /home/turtlebot/catkin_ws/cafe_demo/src/cafe_demo/kobuki-x/waiterbot/param/vel_multiplexer.yaml]]}}'"/>
 
   <!--  ******** Kobuki auto-docking controller *******  -->
   <include file="$(find waiterbot)/launch/includes/_autodock.launch"/>

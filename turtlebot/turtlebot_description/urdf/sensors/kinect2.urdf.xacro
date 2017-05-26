@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<robot name="kinect2" xmlns:xacro="http://ros.org/wiki/xacro" >
+ <xacro:include filename="$(find turtlebot_description)/urdf/turtlebot_gazebo.urdf.xacro"/>
+ <xacro:include filename="$(find turtlebot_description)/urdf/turtlebot_properties.urdf.xacro"/>
+
+  <xacro:property name="kinect2_cam_py" value="-0.098"/>
+ 
+
+ <xacro:macro name="kinect2" params="parent">
+
+    <material name="Kinect2Grey">
+      <color rgba="0.15 0.15 0.15 1.0"/>
+    </material>
+
+
+ 
+
+
+
+  <joint name="kinect2_joint" type="fixed">
+      <origin xyz="${cam_px} ${kinect2_cam_py} ${cam_pz}" rpy="${cam_or} ${cam_op} ${cam_oy}"/>
+      <parent link="${parent}"/>
+      <child link="kinect2_link"/>
+    </joint>  
+      <link name="kinect2_link">
+<visual>
+       <origin xyz="0 0 0" rpy="${M_PI/2} ${-M_PI} ${M_PI/2}"/>
+        <geometry>
+          <!-- these meshes were exported in mm, so scale back to m   M_PI/2   ${-M_PI/2} -->
+
+         <mesh filename="package://turtlebot_description/meshes/sensors/kinect20.dae" scale="0.001 0.001 0.001" />
+        </geometry>
+        <material name="Kinect2Grey"/>
+      </visual>
+
+  	  <collision>
+        <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  	    <geometry>
+  	      <box size="0.07271 0.27794 0.073"/>
+  	    </geometry>
+  	  </collision>
+
+      <inertial>
+        <mass value="0.564" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
+                 iyy="0.000498940" iyz="0.0"
+                 izz="0.003879257" />
+      </inertial>
+    </link>
+<joint name="kinect2_rgb_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <parent link="kinect2_link" />
+      <child link="kinect2_rgb_optical_frame" />
+    </joint>
+    <link name="kinect2_rgb_optical_frame"/>
+
+
+<joint name="kinect2_ir_optical_joint" type="fixed">
+	  <origin xyz="0 0 0" rpy="0 0 0" />
+	  <parent link="kinect2_link" />
+	  <child link="kinect2_ir_optical_frame" />
+	</joint>
+	<link name="kinect2_ir_optical_frame"/>
+
+
+
+	<turtlebot_sim_3dsensor/>
+
+
+      
+
+  </xacro:macro>
+</robot>

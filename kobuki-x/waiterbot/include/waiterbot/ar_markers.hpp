@@ -159,13 +159,14 @@ private:
     {
       if (id == v.markers[i].id)
       {
+		ROS_DEBUG("id:%d == v.markers[%d].id:%d, return true!",i,i,v.markers[i].id);
         if (e != NULL)
           *e = v.markers[i];
 
         return true;
       }
     }
-
+   ROS_DEBUG("included return false");
     return false;
   }
 

@@ -335,8 +335,9 @@ bool ARMarkers::closest(const ar_track_alvar_msgs::AlvarMarkers& including,
 bool ARMarkers::spotted(double younger_than, double min_confidence, bool exclude_globals,
                            ar_track_alvar_msgs::AlvarMarkers& spotted)
 {
-  if (spotted_markers_.markers.size() == 0)
-    return false;
+  if (spotted_markers_.markers.size() == 0){
+	ROS_DEBUG("spotted_marker_.markers.size() ==0");
+    return false;}
 
   if ((ros::Time::now() - spotted_markers_.markers[0].header.stamp).toSec() >= younger_than)
   {
@@ -351,15 +352,17 @@ bool ARMarkers::spotted(double younger_than, double min_confidence, bool exclude
   spotted.markers.clear();
   for (unsigned int i = 0; i < spotted_markers_.markers.size(); i++)
   {
-    if ((exclude_globals == true) && (included(spotted_markers_.markers[i].id, global_markers_) == true))
-      continue;
+    if ((exclude_globals == true) && (included(spotted_markers_.markers[i].id, global_markers_) == true)){
+      //  ROS_DEBUG("exclude_globals == true && includedeb == true");
+		continue;}
 
     if (tracked_markers_[spotted_markers_.markers[i].id].confidence >= min_confidence)
     {
+	  ROS_DEBUG("tracked_markers_[spootted_markers_.markers[%d].id.confidence:%lf >= min_confidence:%lf",i,tracked_markers_[spotted_markers_.markers[i].id].confidence,min_confidence);
       spotted.markers.push_back(spotted_markers_.markers[i]);
     }
   }
-
+  ROS_DEBUG("return %d",spotted.markers.size()>0);
   return (spotted.markers.size() > 0);
 }
 
@@ -390,7 +393,7 @@ bool ARMarkers::spotDockMarker(uint32_t base_marker_id)
   {
     if (spotted_markers_.markers[i].id == base_marker_id)
     {
-      if (tracked_markers_[spotted_markers_.markers[i].id].confidence < 0.3)
+      if (tracked_markers_[spotted_markers_.markers[i].id].confidence < -0.3)
       {
         ROS_WARN("Low confidence on spotted docking marker. Very dangerous...",
                  tracked_markers_[spotted_markers_.markers[i].id].confidence);

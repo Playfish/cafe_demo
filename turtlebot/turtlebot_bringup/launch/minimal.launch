@@ -4,6 +4,7 @@
   <arg name="stacks"     value="$(optenv TURTLEBOT_STACKS hexagons)"/>  <!-- circles, hexagons -->
   <arg name="3d_sensor"  value="$(optenv TURTLEBOT_3D_SENSOR kinect)"/>  <!-- kinect, asus_xtion_pro -->
   <arg name="simulation" value="$(optenv TURTLEBOT_SIMULATION false)"/>
+  <arg name="serialport" value="$(optenv TURTLEBOT_SERIAL_PORT)"/>
 
   <arg name="concert_name" default="concertmaster"/>
   <arg name="robot_name" default="turtlebot"/>
@@ -20,6 +21,7 @@
   </include>
   <include file="$(find turtlebot_bringup)/launch/includes/_mobile_base.launch">
     <arg name="base" value="$(arg base)" />
+	<arg name="serialport" value="$(arg serialport)"/>
   </include>
   <include file="$(find turtlebot_bringup)/launch/includes/_netbook.launch">
     <arg name="battery" value="$(arg battery)" />

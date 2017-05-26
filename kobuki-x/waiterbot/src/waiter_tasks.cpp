@@ -70,7 +70,7 @@ bool WaiterNode::wakeUp()
   bool timeout = false;
   ros::Time t0 = ros::Time::now();
   ar_track_alvar_msgs::AlvarMarkers spotted_markers;
-  while ((ar_markers_.spotted(1.0, 0.3, true, spotted_markers) == false) && (timeout == false))
+  while ((ar_markers_.spotted(1.0, 0.0, true, spotted_markers) == false) && (timeout == false))//0.3->0.0
   {
     if ((ros::Time::now() - t0).toSec() < SPOT_BASE_MARKER_TIMEOUT)
     {
@@ -99,7 +99,7 @@ bool WaiterNode::wakeUp()
   }
 
   ar_track_alvar_msgs::AlvarMarker closest_marker;
-  ar_markers_.closest(1.0, 0.3, true, closest_marker);
+  ar_markers_.closest(1.0, 0.0, true, closest_marker);//0.3->0.0
   ROS_DEBUG("Docking station AR marker %d spotted! Look for a global marker to find where I am...", closest_marker.id);
 
   uint32_t base_marker_id = closest_marker.id;
